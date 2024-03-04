@@ -1,0 +1,60 @@
+// Importiere die JOptionPane-Klasse, um Benutzereingaben über Dialogfelder zu erhalten
+import javax.swing.*;
+ 
+void setup() {
+  // Benutzer wird aufgefordert, die erste Zahl einzugeben
+  double ersteZahl = getNumberFromUser("Erste Zahl eingeben");
+ 
+  // Benutzer wird aufgefordert, die zweite Zahl einzugeben
+  double zweiteZahl = getNumberFromUser("Zweite Zahl eingeben");
+ 
+  // Benutzer wird aufgefordert, den Operator einzugeben
+  char operator = getOperatorFromUser("Operator eingeben (*, +, -, /):");
+ 
+  // Berechne und zeige das Ergebnis
+  berechneErgebnis(ersteZahl, zweiteZahl, operator);
+}
+ 
+// Methode zum Erhalten einer Zahl vom Benutzer
+double getNumberFromUser(String prompt) {
+  // Zeige ein Dialogfeld an, fordere den Benutzer auf, die Zahl einzugeben
+  // Parsen Sie die Benutzereingabe als Double und geben Sie es zurück
+  return Double.parseDouble(JOptionPane.showInputDialog(prompt));
+}
+ 
+// Methode zum Erhalten eines Operators vom Benutzer
+char getOperatorFromUser(String prompt) {
+  // Zeige ein Dialogfeld an, fordere den Benutzer auf, den Operator einzugeben
+  // Hole den ersten Buchstaben der Benutzereingabe als Char und gib ihn zurück
+  return JOptionPane.showInputDialog(prompt).charAt(0);
+}
+ 
+// Methode zum Berechnen und Anzeigen des Ergebnisses
+void berechneErgebnis(double zahl1, double zahl2, char operator) {
+  // Initialisiere die Variable für das Ergebnis
+  double ergebnis;
+ 
+  // Verwende den Switch-Case-Block, um die entsprechende Operation basierend auf dem Operator auszuführen
+  switch (operator) {
+    case '*': // Multiplikation
+      ergebnis = zahl1 * zahl2;
+      break;
+    case '/': // Division
+      // Überprüfe, ob der Divisor (zahl2) nicht gleich Null ist, um Division durch Null zu vermeiden
+      ergebnis = (zahl2 != 0) ? zahl1 / zahl2 : Double.POSITIVE_INFINITY;
+      break;
+    case '+': // Addition
+      ergebnis = zahl1 + zahl2;
+      break;
+    case '-': // Subtraktion
+      ergebnis = zahl1 - zahl2;
+      break;
+    default:
+      // Fall, wenn ein ungültiger Operator eingegeben wurde
+      println("Ungültiger Operator");
+      return;
+  }
+ 
+  // Gib das Ergebnis auf der Konsole aus
+  println("Ergebnis: " + ergebnis);
+}
