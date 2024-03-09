@@ -6,7 +6,7 @@
 <!-- Desc section -->
 ---
 
-<b>📋Description</b>
+<b>📋 Description</b>
 ---
 Embark on a personal learning journey with this Java project, meticulously crafted to master the art of building a calculator that interacts with the user through dialog boxes. Designed as a self-paced endeavor, this project prompts users to input two numbers and select an operator (*, +, -, /) to perform a corresponding calculation. Let's delve into the essence of this independent exploration:
 
